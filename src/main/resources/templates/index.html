@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+<br />
+	<div class="container" style="width: 717px">
+		<h3>Get a Recipe!</h3>
+		<form id="recipeForm" method="post" novalidate>
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
+				<div class="invalid-feedback">Please enter your name.</div>
+			</div>
+			<div class="form-group">
+				<label>Are you vegetarian?</label>
+				<div class="custom-control custom-radio">
+					<input type="radio" id="va" name="vegetarian" class="custom-control-input" value="a" required>
+					<label class="custom-control-label" for="va">Yes</label>
+				</div>
+				<div class="custom-control custom-radio">
+					<input type="radio" id="vb" name="vegetarian" class="custom-control-input" value="b" required>
+					<label class="custom-control-label" for="vb">No</label>
+					<div class="invalid-feedback">Please select if you are vegetarian.</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>How many people are you feeding?</label>
+				<div class="custom-control custom-radio">
+					<input type="radio" id="pa" name="people" class="custom-control-input" value="a" required>
+					<label class="custom-control-label" for="pa">Just me</label>
+				</div>
+				<div class="custom-control custom-radio">
+					<input type="radio" id="pb" name="people" class="custom-control-input" value="b" required>
+					<label class="custom-control-label" for="pb">Me +1</label>
+				</div>
+				<div class="custom-control custom-radio">
+					<input type="radio" id="pc" name="people" class="custom-control-input" value="c" required>
+					<label class="custom-control-label" for="pc">A family</label>
+					<div class="invalid-feedback">Please select the number of people.</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>How much time do you have?</label>
+				<div class="custom-control custom-radio">
+					<input type="radio" id="ta" name="time" class="custom-control-input" value="a" required>
+					<label class="custom-control-label" for="ta">&lt 20 minutes</label>
+				</div>
+				<div class="custom-control custom-radio">
+					<input type="radio" id="tb" name="time" class="custom-control-input" value="b" required>
+					<label class="custom-control-label" for="tb">20 - 40 minutes</label>
+				</div>
+				<div class="custom-control custom-radio">
+					<input type="radio" id="tc" name="time" class="custom-control-input" value="c" required>
+					<label class="custom-control-label" for="tc">&gt 40 minutes</label>
+					<div class="invalid-feedback">Please select how much time you have.</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="email" style="width: 100%">Email:</email>
+				<input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+				<div class="invalid-feedback">Please enter your email address.</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Send me a recipe!</button>
+		</form>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+	<script src="validate.js"></script>
+</body>
+</html>
