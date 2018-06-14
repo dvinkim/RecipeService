@@ -45,12 +45,48 @@ public class RecipeController {
 			@RequestParam(value = "people", required = true) String p,
 			@RequestParam(value = "time", required = true) String t,
 			@RequestParam(value = "email", required = true) String email) {
+		
+		// Create recipe
+		ArrayList<String> res = getRecipe(v, p ,t);
+		
+		// Create HTML string
+		StringBuilder result = new StringBuilder();
+		result.append("<img src=\"banner.png\"></img>");
+		for (String text : res) {
+			result.append("<p>");
+			result.append(text);
+			result.append("</p>");
+		}
+		
+		// Attach results to model
+		model.addAttribute("result", result.toString());
+		model.addAttribute("name", name);
+		model.addAttribute("email", email);
+		
+		// Create pdf and send email
+		if (createPDF(res)) {
+			sendMail(email, result.toString());
+		}
+		
+		// Return emailed.html
+		return "emailed";
+	}
+	
+	/**
+	 * Creates response body based on parameters
+	 * 
+	 * @param v
+	 * @param p
+	 * @param t
+	 * @return
+	 */
+	ArrayList<String> getRecipe(String v, String p, String t) {
 		ArrayList<String> res = new ArrayList<>();
 		
 		// Header
 		if (v.equals("a") && !t.equals("a")) {
 			res.add("Healthy vegetarian options for you!");
-		} else if (t.equals("c")) {
+		} else if (t.equals("a")) {
 			res.add("Let's make something quick:");
 		} else {
 			res.add("We've got a recipe for you:");
@@ -83,27 +119,7 @@ public class RecipeController {
 			res.add("Enjoy your meal!");
 		}
 		
-		// Create HTML string
-		StringBuilder result = new StringBuilder();
-		result.append("<img src=\"banner.png\"></img>");
-		for (String text : res) {
-			result.append("<p>");
-			result.append(text);
-			result.append("</p>");
-		}
-		
-		// Attach results to model
-		model.addAttribute("result", result.toString());
-		model.addAttribute("name", name);
-		model.addAttribute("email", email);
-		
-		// Create pdf and send email
-		if (createPDF(res)) {
-			sendMail(email, result.toString());
-		}
-		
-		// Return emailed.html
-		return "emailed";
+		return res;
 	}
 	
 	/**
